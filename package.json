@@ -1,0 +1,81 @@
+{
+  "name": "optical-phenomena-simulations",
+  "version": "1.0.0",
+  "description": "Interactive physics simulations demonstrating fundamental optical phenomena",
+  "main": "optical_phenomena_dashboard.html",
+  "scripts": {
+    "dev": "live-server --port=3000 --open=optical_phenomena_dashboard.html",
+    "build": "npm run test && npm run optimize",
+    "test": "npm run test:visual && npm run test:physics && npm run test:browser",
+    "test:visual": "playwright test tests/visual/",
+    "test:physics": "jest tests/physics/",
+    "test:browser": "playwright test tests/browser/",
+    "optimize": "node scripts/optimize.js",
+    "deploy": "gh-pages -d .",
+    "lint": "eslint *.html --ext .html,.js",
+    "format": "prettier --write *.html *.js *.md",
+    "validate": "html-validate *.html",
+    "lighthouse": "lighthouse optical_phenomena_dashboard.html --output=json --output-path=./reports/lighthouse.json",
+    "accessibility": "axe optical_phenomena_dashboard.html",
+    "performance": "node scripts/performance-test.js",
+    "docs": "jsdoc -c jsdoc.conf.json",
+    "serve": "http-server -p 8080 -o optical_phenomena_dashboard.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/optical-phenomena-simulations.git"
+  },
+  "keywords": [
+    "physics",
+    "optics",
+    "education",
+    "simulation",
+    "interactive",
+    "quantum",
+    "refraction",
+    "dispersion",
+    "photoelectric",
+    "snells-law",
+    "prism",
+    "light",
+    "visualization",
+    "canvas",
+    "javascript",
+    "html5"
+  ],
+  "author": "Your Name <your.email@example.com> (https://github.com/yourusername)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yourusername/optical-phenomena-simulations/issues"
+  },
+  "homepage": "https://yourusername.github.io/optical-phenomena-simulations/",
+  "devDependencies": {
+    "@axe-core/playwright": "^4.11.0",
+    "@playwright/test": "^1.57.0",
+    "eslint": "^8.57.1",
+    "eslint-plugin-html": "^7.1.0",
+    "gh-pages": "^6.3.0",
+    "html-validate": "^8.29.0",
+    "http-server": "^14.1.1",
+    "jest": "^29.7.0",
+    "jsdoc": "^4.0.5",
+    "lighthouse": "^11.7.1",
+    "live-server": "^1.2.2",
+    "prettier": "^3.7.4"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ],
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/yourusername"
+  },
+  "type": "commonjs"
+}
